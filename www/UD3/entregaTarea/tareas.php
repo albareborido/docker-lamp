@@ -4,23 +4,19 @@ try {
     $pdo = new PDO('mysql:host=db;dbname=tareas', 'root', 'test');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Variables de filtrado
     $usuario = isset($_GET['usuario']) ? $_GET['usuario'] : '';
     $estado = isset($_GET['estado']) ? $_GET['estado'] : '';
 
-    // Filtrado de tareas
     $filters = [];
     $query = "SELECT tareas.id, tareas.titulo, tareas.descripcion, tareas.estado, usuarios.username
               FROM tareas
               INNER JOIN usuarios ON tareas.id_usuario = usuarios.id WHERE 1=1";
 
-    // Si se pasa un usuario, filtrar por el nombre de usuario
     if ($usuario) {
         $query .= " AND usuarios.username LIKE :usuario";
         $filters['usuario'] = "%$usuario%";
     }
 
-    // Si se pasa un estado, filtrar por el estado de la tarea
     if ($estado) {
         $query .= " AND tareas.estado = :estado";
         $filters['estado'] = $estado;

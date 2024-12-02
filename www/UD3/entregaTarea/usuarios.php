@@ -43,51 +43,50 @@ try {
             <?php include_once('menu.php'); ?>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="container justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h2>Lista de Usuarios</h2>
-                </div>
+                    <div class="container justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Lista de Usuarios</h2>
+                    </div>
 
-                <div class="container justify-content-between">
-                    <p>
-                    <main class="container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Username</th>
-                                    <th>Nombre</th>
-                                    <th>Apellidos</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if (count($usuarios) > 0): ?>
-                                    <?php foreach ($usuarios as $usuario): ?>
-                                        <tr>
-                                            <td><?= htmlspecialchars($usuario['id']) ?></td>
-                                            <td><?= htmlspecialchars($usuario['username']) ?></td>
-                                            <td><?= htmlspecialchars($usuario['nombre']) ?></td>
-                                            <td><?= htmlspecialchars($usuario['apellidos']) ?></td>
-                                            <td>
-                                                <a href="editaUsuarioForm.php?id=<?= $usuario['id'] ?>">Editar</a>
-                                                <a href="borraUsuario.php?id=<?= $usuario['id'] ?>">Borrar</a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <tr>
-                                        <td colspan="5">No hay usuarios registrados.</td>
-                                    </tr>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </main>
+                    
+
+
+                    <div class="table-responsive">
                         
+                        <table class="table table-striped table-hover">
+                            
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Username</th>
+                                        <th>Nombre</th>
+                                        <th>Apellidos</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (count($usuarios) > 0): ?>
+                                        <?php foreach ($usuarios as $usuario): ?>
+                                            <tr>
+                                                <td><?= htmlspecialchars($usuario['id']) ?></td>
+                                                <td><?= htmlspecialchars($usuario['username']) ?></td>
+                                                <td><?= htmlspecialchars($usuario['nombre']) ?></td>
+                                                <td><?= htmlspecialchars($usuario['apellidos']) ?></td>
+                                                <td>
+                                                    <a href="editaUsuarioForm.php?id=<?= $usuario['id'] ?>">Editar</a>
+                                                    <a href="borraUsuario.php?id=<?= $usuario['id'] ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta usuario?')">Borrar</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="6">No hay usuarios registrados.</td>
+                                        </tr>
+                                    <?php endif; ?>
+                                </tbody>
+                        </table>
 
-
-
-                    </p>
-                </div>
+                    </div>
+                
             </main>
         </div>
     </div>

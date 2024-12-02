@@ -27,28 +27,28 @@
                         try {
                             // Crear conexión a MySQL (sin especificar la base de datos)
                             $conn = new mysqli('db', 'root', 'test');
-                            echo "Conexión correcta.<br>";
+                            echo '<div class="alert alert-success" role="alert">Conexión correcta.</div>';
 
-                            // Verificar si la conexión fue exitosa
+                            // Verificar la conexión
                             if ($conn->connect_error) {
-                                echo "Conexión fallida: " . $conn->connect_error;
+                                echo '<div class="alert alert-danger" role="alert">Conexión fallida: ' . $conn->connect_error;
                             }
-                            echo "Conexión exitosa al servidor de base de datos.<br>";
+                            echo '<div class="alert alert-success" role="alert">Conexión exitosa al servidor de base de datos.</div>';
 
-                            // Intentar crear la base de datos si no existe
+                            // Crear la base de datos si no existe
                             $sql = "CREATE DATABASE IF NOT EXISTS tareas";
                             if ($conn->query($sql) === TRUE) {
-                                echo "Base de datos creada.<br>";
+                                echo '<div class="alert alert-success" role="alert">Base de datos creada.</div>';
                             } else {
-                                echo "Error al crear la base de datos: " . $conn->error;
+                                echo '<div class="alert alert-danger" role="alert">Error al crear la base de datos: ' . $conn->error;
                             }
 
-                            // Cambiar a la base de datos 'tareas'
+                            // Cambiar a la base de datos tareas
                             if (!$conn->select_db('tareas')) {
                                 throw new Exception("Error al seleccionar la base de datos 'tareas': " . $conn->error);
                             }
 
-                            // Crear la tabla 'usuarios' si no existe
+                            // Crear la tabla usuarios si no existe
                             $sql = "CREATE TABLE IF NOT EXISTS usuarios (
                                 id INT AUTO_INCREMENT PRIMARY KEY,
                                 username VARCHAR(50) NOT NULL,
@@ -58,13 +58,13 @@
                             )";
 
                         if ($conn->query($sql) === TRUE) {
-                            echo "Tabla 'usuarios' creada o ya existe.<br>";
+                            echo '<div class="alert alert-success" role="alert">Tabla \'usuarios\' creada.</div>';
                         } else {
-                            // Mostrar error más detallado
-                            echo "Error al crear la tabla 'usuarios': " . $conn->error . "<br>";
+                            
+                            echo '<div class="alert alert-danger" role="alert">Error al crear la tabla \'usuarios\': ' . $conn->error . "<br>";
                         }
 
-                            // Crear la tabla 'tareas' si no existe
+                            // Crear la tabla tareas si no existe
                             $sql = "CREATE TABLE IF NOT EXISTS tareas (
                                 id INT AUTO_INCREMENT PRIMARY KEY,
                                 titulo VARCHAR(50) NOT NULL,
@@ -75,9 +75,9 @@
                             )";
 
                             if ($conn->query($sql) === TRUE) {
-                                echo "Tabla 'tareas' creada o ya existe.<br>";
+                                echo '<div class="alert alert-success" role="alert">Tabla \'tareas\' creada.</div>';
                             } else {
-                                throw new Exception("Error al crear la tabla 'tareas': " . $conn->error);
+                                echo '<div class="alert alert-danger" role="alert">Error al crear la tabla \'tareas\': ' . $conn->error . '</div>';
                             }
 
                             // Cerrar la conexión

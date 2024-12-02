@@ -9,21 +9,35 @@
 <body>
     <?php include_once('header.php'); ?>
     
-    
-    <form action="nuevoUsuario.php" method="POST"> 
-        <label for="username">Username:</label>
-        <input type="text" name="username" required><br>
-        
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" required><br>
+    <div class="container justify-content-between mb-3">
+   
+                    
+        <form action="nuevoUsuario.php" method="POST" class="mb-5 w-50"> 
+            <div class="col-md-3">  
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" required><br>
+            </div>
+            <div class="col-md-3">   
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" name="nombre" required><br>
+            </div>
+            <div class="col-md-3" >  
+                <label for="apellidos" class="form-label">Apellidos:</label>
+                <input type="text" name="apellidos" required><br>
+            </div>  
+            <div class="col-md-3">   
 
-        <label for="apellidos">Apellidos:</label>
-        <input type="text" name="apellidos" required><br>
+                <label for="contrasena" class="form-label">Contraseña:</label>
+                <input type="password" name="contrasena" required><br>
+            </div>
+            <div class="col-md-4">   
+                <button type="submit" class="btn btn-primary mt-4">Crear Usuario</button>
+            </div>
+        </form>
+                                
+    </div>
 
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" name="contrasena" required><br>
+    <?php include_once('footer.php'); ?>
 
-        <button type="submit">Crear Usuario</button>
-    </form>
 </body>
 </html>

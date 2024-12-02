@@ -44,11 +44,12 @@ try {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <?php include_once('menu.php'); ?>
+    <?php include_once('header.php'); ?>    
+    
     
     <div class="container-fluid">
         <div class="row">
-            <!-- Menu lateral -->
+            
             <?php include_once('menu.php'); ?>
                         
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -56,7 +57,7 @@ try {
                     <h2>Lista de Tareas</h2>
                 </div>
                 
-                <!-- Formulario de búsqueda -->
+                
                 <div class="container justify-content-between mb-3">
                     <form action="tareas.php" method="GET" class="row">
                         <div class="col-md-4">
@@ -78,7 +79,7 @@ try {
                     </form>
                 </div>
 
-                <!-- Tabla de tareas -->
+                
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead>

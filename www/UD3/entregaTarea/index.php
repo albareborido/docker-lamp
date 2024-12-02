@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="container justify-content-between">
-                    <p>Tarea unidada didactica 3 </p>
+                    <p>Aplicación para gestionar tareas</p>
                 </div>
             </main>
         </div>

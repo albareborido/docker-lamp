@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuevo Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h2>Nuevo Usuario</h2>
+    <?php include_once('header.php'); ?>
+    
+    
     <form action="nuevoUsuario.php" method="POST"> 
         <label for="username">Username:</label>
         <input type="text" name="username" required><br>

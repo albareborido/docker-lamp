@@ -44,25 +44,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Usuario</title>
+    <title>UD3. Tarea</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h2>Nuevo Usuario</h2>
-    <form action="nuevoUsuario.php" method="POST"> 
-        <label for="username">Username:</label>
-        <input type="text" name="username" required><br>
-        
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" required><br>
+    <?php include_once('header.php'); ?>
 
-        <label for="apellidos">Apellidos:</label>
-        <input type="text" name="apellidos" required><br>
+    <div class="container-fluid">
+        <div class="row">
+            
+            <?php include_once('menu.php'); ?>
 
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" name="contrasena" required><br>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="container justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h2>Nuevo Usuario</h2>
+                </div>
 
-        <button type="submit">Crear Usuario</button>
-    </form>
+                <div class="container justify-content-between mb-3">
+                    <p>
+                        <form action="nuevoUsuario.php" method="POST"> 
+                            <label for="username">Username:</label>
+                            <input type="text" name="username" required><br>
+                            
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre" required><br>
+
+                            <label for="apellidos">Apellidos:</label>
+                            <input type="text" name="apellidos" required><br>
+
+                            <label for="contrasena">Contraseña:</label>
+                            <input type="password" name="contrasena" required><br>
+
+                            <button type="submit">Crear Usuario</button>
+                        </form>
+                    </p>
+                </div>
+            </main>
+        </div>
+    </div>
+    <?php include_once('footer.php'); ?>
+    
 </body>
 </html>
 
